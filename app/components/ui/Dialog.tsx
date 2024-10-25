@@ -41,25 +41,27 @@ export const dialogVariants = {
 } satisfies Variants;
 
 interface DialogButtonProps {
-  type: 'primary' | 'secondary' | 'danger';
+  buttonType: 'primary' | 'secondary' | 'danger';
   children: ReactNode;
+  type?: 'button' | 'reset' | 'submit' | undefined;
   onClick?: (event: React.UIEvent) => void;
 }
 
-export const DialogButton = memo(({ type, children, onClick }: DialogButtonProps) => {
+export const DialogButton = memo(({ buttonType, children, onClick, type }: DialogButtonProps) => {
   return (
     <button
       className={classNames(
         'inline-flex h-[35px] items-center justify-center rounded-lg px-4 text-sm leading-none focus:outline-none',
         {
           'bg-bolt-elements-button-primary-background text-bolt-elements-button-primary-text hover:bg-bolt-elements-button-primary-backgroundHover':
-            type === 'primary',
+            buttonType === 'primary',
           'bg-bolt-elements-button-secondary-background text-bolt-elements-button-secondary-text hover:bg-bolt-elements-button-secondary-backgroundHover':
-            type === 'secondary',
+            buttonType === 'secondary',
           'bg-bolt-elements-button-danger-background text-bolt-elements-button-danger-text hover:bg-bolt-elements-button-danger-backgroundHover':
-            type === 'danger',
+            buttonType === 'danger',
         },
       )}
+      type={type}
       onClick={onClick}
     >
       {children}

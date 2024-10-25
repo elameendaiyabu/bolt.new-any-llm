@@ -4,7 +4,7 @@ import { chatStore } from '~/lib/stores/chat';
 import { classNames } from '~/utils/classNames';
 import { HeaderActionButtons } from './HeaderActionButtons.client';
 import { ChatDescription } from '~/lib/persistence/ChatDescription.client';
-import { AddApiKeyButton } from './AddAPIKeyButton.cliient';
+import { AddApiKeyButton } from './AddAPIKeyButton';
 
 export function Header() {
   const chat = useStore(chatStore);
